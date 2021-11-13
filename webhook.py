@@ -6,8 +6,13 @@ def webhook(session):
     action = session['action']
 
     if action == 'event1':
-        print('Received request from event1 action')
-        session['variable1'] = "value1"
+        num_u = session['num_u']
+        number = [int(i) for i in ' '.join(session['number']).split()]
+        count = 0
+        for i in range(len(number)):
+            if num_u[i] == number[i]:
+                count += 1
+        session['variable1'] = 'count'
 
     elif action == 'event2':
         print('Received request from event2 action')
